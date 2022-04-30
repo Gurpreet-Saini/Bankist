@@ -1,12 +1,9 @@
 'use strict';
 
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-// BANKIST APP
 
 // Data
 const account1 = {
-  owner: "Jonas Schmedtmann",
+  owner: "Gurpreet Saini",
   movements: [200, 455.23, -306.5, 25000, -642.21, -133.9, 79.97, 1300],
   interestRate: 1.2, // %
   pin: 1111,
@@ -26,7 +23,7 @@ const account1 = {
 };
 
 const account2 = {
-  owner: "Jessica Davis",
+  owner: "Mohit Gupta",
   movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
   interestRate: 1.5,
   pin: 2222,
@@ -84,7 +81,7 @@ const account4 = {
 
 const accounts = [account1, account2, account3, account4];
 
-//Elements
+////Elements
 const labelWelcome = document.querySelector('.welcome');
 const labelDate = document.querySelector('.date');
 const labelBalance = document.querySelector('.balance__value');
@@ -112,11 +109,11 @@ const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 const displayDate=document.querySelector('movements__date');
 
-
-
-const fromatMovementsDate= function(date, locale ){ 
-  const calcDaysPassed = (date1,date2) =>
+const calcDaysPassed = (date1,date2) =>
   Math.round(Math.abs(date2-date1)/(1000*60*60*24 ));
+/// function  to create dates   
+const fromatMovementsDate= function(date, locale ){ 
+  
    const dayPassed=calcDaysPassed(new Date() , date);
   
 
@@ -236,7 +233,6 @@ const updateUI= function(acc){
       labelWelcome.textContent = "Log in to get started";
       containerApp.style.opacity = 0;
     }
-
     // Decrease 1s
     time--;
   };
@@ -323,7 +319,7 @@ btnTransfer.addEventListener('click', function(e){
           currentAccount.movements.push(-amount);
           receiverAcc.movements.push(amount);
           // add transfer date
-          currentAccount.movementsDates.push(new Date().toISOString());
+          currentAccount.movementsDates.push(new Date().toISOString()); //return a string in date format
           receiverAcc.movementsDates.push(new Date().toISOString());
 
           //update UI
@@ -378,7 +374,6 @@ btnClose.addEventListener('click', function(e){
 
            inputClosePin.value=inputCloseUsername.value='';
            
-           // scroll to top 
           
           //   window.location.reload();
            return (labelWelcome.innerHTML='Log in to get started');
