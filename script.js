@@ -135,7 +135,7 @@ const formatCur = function (value , locale , currency){
     return new Intl.NumberFormat(locale, {
     style:'currency',
     currency:currency,
-  }).format(value);
+  }).format(value);// formating the values
 }
 
 const displayMovements = function(acc, ){
@@ -193,9 +193,9 @@ const calcDisplaySummary= function(acc){
       labelSumOut.textContent=formatCur(sumOut ,acc.locale , acc.currency);
     
       const interest= acc.movements.filter(mov=> mov>0)
-      .map(deposit=> deposit*acc.interestRate/100)
+      .map(deposit => deposit*acc.interestRate/100)
       .filter( ( int , i , arr)=>{
-        return int>=1;
+        return int>=1;  // filter the intrest value which is less than 1
       } )
       .reduce( (acc, int )=> acc+int,0);
       labelSumInterest.textContent=formatCur(interest,acc.locale , acc.currency);
@@ -229,7 +229,7 @@ const updateUI= function(acc){
 
     // When 0 seconds, stop timer and log out user
     if (time === 0) {
-      clearInterval(timer);
+      clearInterval(timer); //clear the timer
       labelWelcome.textContent = "Log in to get started";
       containerApp.style.opacity = 0;
     }
@@ -238,7 +238,7 @@ const updateUI= function(acc){
   };
   let time=120;
 
-  tick();
+  tick();  
   const timer= setInterval(tick,1000);
    
   return timer;
@@ -252,11 +252,11 @@ btnLogin.addEventListener('click', function(e){
     e.preventDefault();
 
     currentAccount=accounts.find(
-      acc=> acc.username ===inputLoginUsername.value
+      acc=> acc.username ===inputLoginUsername.value // Checking user identity and matching
     );
 
     // console.log(currentAccount);
-if(currentAccount?.pin=== +inputLoginPin.value){
+if(currentAccount?.pin=== +inputLoginPin.value){ //+ here used to convert to number 
    // display ui  and message
     labelWelcome.textContent=`Welcome Back, ${currentAccount.owner.split(' ')[0]}`;
     containerApp.style.opacity=100;
@@ -301,7 +301,7 @@ labelDate.textContent= new Intl.DateTimeFormat(currentAccount.locale,options).fo
   
 });
 
-
+//   <-----Transfering money------->
 
 btnTransfer.addEventListener('click', function(e){
     e.preventDefault();
@@ -332,6 +332,7 @@ btnTransfer.addEventListener('click', function(e){
      
 } );
 
+//  <----------- getting Loan-------------->
 
 btnLoan.addEventListener('click', function(e){
   e.preventDefault();
@@ -357,6 +358,8 @@ btnLoan.addEventListener('click', function(e){
     inputLoanAmount.value='';
 });
 
+
+//<----------close account-------------->
 btnClose.addEventListener('click', function(e){
     e.preventDefault();
  
