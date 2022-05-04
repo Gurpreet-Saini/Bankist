@@ -1,5 +1,5 @@
 # Bankist
-PROJECT LINK: https://bankistapplication-3p34g82h71tl0410bnq.web.codequotient.com 
+
 
 It is a project i have created based on online Banking System .
 
@@ -17,3 +17,6 @@ To use {
    
    account3 password :2222;
 }
+
+
+Live At : https://gurpreet-saini.github.io/Bankist/
