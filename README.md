@@ -8,15 +8,14 @@ It contains similiar banking functions like sending money , getting loan and clo
 Internationalization API for currency display and conversions.
 
 
-To use {
-   account1 id : gs  
-   
-   account1 password: 1111
-   
-   account2 id :mg 
-   
-   account3 password :2222;
-}
+To use 
 
+   [
+   
+   account1 id : gs  ||  account1 password: 1111
+   
+   account2 id :mg   ||  account3 password :2222;
+   
+   ]
 
 Live At : https://gurpreet-saini.github.io/Bankist/
